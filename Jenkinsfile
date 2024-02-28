@@ -14,7 +14,7 @@ pipeline {
     stages {
         stage('Git Checkout ') {
             steps {
-                git 'https://github.com/jaiswaladi246/DotNet-DEMO.git'
+                git 'https://github.com/shubhangi212001/DotNet-Demo-jk.git'
             }
         }
         
@@ -56,7 +56,7 @@ pipeline {
         stage('Docker Push') {
             steps {
                 script{
-                    withDockerRegistry(credentialsId: 'docker-cred') {
+                    withDockerRegistry(credentialsId: 'DOCKERHUB') {
                         sh "make push"
                     }
                 }
