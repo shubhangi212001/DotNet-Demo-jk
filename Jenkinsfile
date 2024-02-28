@@ -46,7 +46,7 @@ pipeline {
         stage('Docker Build & Tag') {
             steps {
                 script{
-                    withDockerRegistry(credentialsId: 'docker-cred') {
+                    withDockerRegistry(credentialsId: 'DOCKERHUB') {
                         sh "make image"
                     }
                 }
@@ -65,7 +65,7 @@ pipeline {
         
         stage('Docker Deploy') {
             steps {
-                sh "docker run -d -p 5000:5000 adijaiswal/dotnet-demoapp"
+                sh "docker run -d -p 5000:5000 shubhangihshinde/dotnet-demoapp"
             }
         }
         
